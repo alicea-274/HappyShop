@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Trolley {
 
-    private ArrayList<Product> products = new ArrayList<>();
+    protected ArrayList<Product> products = new ArrayList<>();    // alice - make protected or default?
 
     /**
      * Adds a product to the trolley.
@@ -63,8 +63,15 @@ public class Trolley {
     }
 
     public void addProductOrganised(Product product){
-        // organised version of addProduct
-        // no change so far
+        /**
+         * alice
+         * organised version of addProduct
+         * groupProductsById() type subroutine
+         * from CustomerModel
+         * currently trying to do approach 3
+         *
+         */
+
         products.add(product); // for now, product appended like original
     }
 
