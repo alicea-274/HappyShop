@@ -23,7 +23,7 @@ public class OrganisedTrolley extends Trolley{
         // automatically suggested changing to enhanced for loop - check if will still work once set up
         // MUST stop loop immediately after adding or will iterate over one twice
         // ! potential concurrent modification exception
-        for (int i = 0; i < products.size(); i++) {
+        for (int i = 0; i <= products.size(); i++) {
             if (products.get(i).getProductId().equals(product.getProductId())) { // product already in trolley
                 products.get(i).setOrderedQuantity(products.get(i).getOrderedQuantity() + product.getOrderedQuantity());
                 break;  // product added, stop looping
@@ -31,7 +31,7 @@ public class OrganisedTrolley extends Trolley{
                 // got to a product that comes after what we're trying to add - product not in list
                 products.add(i, product);   // insert product before first instance of higher productID
                 break;  // product added, stop looping
-            } else if (i == products.size() - 1) { // if just checked last product
+            } else if (i == products.size()) { // if just checked last product
                 products.add(product);
                 break;  // product added, stop looping
             }
