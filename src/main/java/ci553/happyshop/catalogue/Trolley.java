@@ -62,6 +62,12 @@ public class Trolley {
         products.add(product); // product is appended to the end of the trolley
     }
 
+    public void addProductOrganised(Product product){
+        // organised version of addProduct
+        // no change so far
+        products.add(product); // for now, product appended like original
+    }
+
     public ArrayList<Product> getProducts() {
         return products;
     }
