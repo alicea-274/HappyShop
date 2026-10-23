@@ -80,6 +80,7 @@ public class CustomerModel {
             // Add the selected product to the trolley.
             // Currently this simply appends the product to the end of the list.
             // TODO: Improve the organisation of the trolley (see class Trolley).
+            // alice - done that
             trolley.addProduct(searchResult);
             // Build a formatted string so the trolley contents can be displayed in the UI
             trolleyContentsText = ProductListFormatter.buildString(trolley.getProducts());
