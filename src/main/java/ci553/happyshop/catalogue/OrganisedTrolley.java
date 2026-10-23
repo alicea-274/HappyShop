@@ -20,7 +20,33 @@ public class OrganisedTrolley extends Trolley{
                 products.add(product);
                 break;  // product added, stop looping
             } else if (products.get(i).getProductId().equals(product.getProductId())) { // product already in trolley
-                products.get(i).setOrderedQuantity(products.get(i).getOrderedQuantity() + product.getOrderedQuantity());
+                products.get(i).setOrderedQuantity(products.get(i).getOrderedQuantity() + 1);
+                /**
+                 * PROBLEM
+                 * doubles quantity in trolley every time
+                 * are the product being added and the product in the list pointing to the same object?
+                 * using "orderedQuantity" to mean the amount being added to the order in the case of product being added
+                 * and the amount already in the order in the case of product in list
+                 * @see Product
+                 * ^idk if thats the right use of javadoc or if its helpful
+                 * but basically the definition in there is:
+                 * "orderedQuantity: Quantity involved in a customer's order"
+                 *
+                 * the item in products() that matches the productID of product
+                 * -> is just product itself
+                 * -> they're the same object from the database
+                 * -> they've just been passed into this method via different routes
+                 * -> but the "orderedQuantity"s being used here are really just one value
+                 *
+                 * current fix: assume the quantity being added must be 1
+                 * as only possible to be 1 for now as not implemented granular control of items part
+                 * but when making it possible to choose to add multiples of one product to trolley in future
+                 * will have to adjust fix then
+                 *
+                 * -> although tbf that seems like will involve changing "orderedQuantity" in some way anyway
+                 * error here was trying to account for change in definition of variable that hasnt happened yet
+                 * and only on one side
+                */
                 break;  // product added, stop looping
             } else if (Integer.parseInt(products.get(i).getProductId()) > Integer.parseInt(product.getProductId())) {
                 // got to a product that comes after what we're trying to add - product not in list

@@ -70,6 +70,8 @@ public class Trolley {
          * from CustomerModel
          * currently trying to do approach 3
          *
+         * update: i think i dont need to use this now?
+         * as organisedtrolley class just overrides regular addproduct
          */
 
         products.add(product); // for now, product appended like original
