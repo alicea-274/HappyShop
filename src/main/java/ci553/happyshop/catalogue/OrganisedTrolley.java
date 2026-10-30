@@ -46,6 +46,12 @@ public class OrganisedTrolley extends Trolley{
                  * -> although tbf that seems like will involve changing "orderedQuantity" in some way anyway
                  * error here was trying to account for change in definition of variable that hasnt happened yet
                  * and only on one side
+                 *
+                 * NEW PROBLEM
+                 * clearing the trolley and then adding stuff again adds them starting at the number ordered before
+                 * doesnt happen after checkout - see how the process for clearing the trolley in that case is different
+                 * -> groupProductsById in CustomerModel creates a shallow copy of products to avoid modifying the original
+                 * make new addProduct method based on groupProductsById?
                 */
                 break;  // product added, stop looping
             } else if (Integer.parseInt(products.get(i).getProductId()) > Integer.parseInt(product.getProductId())) {
@@ -54,5 +60,10 @@ public class OrganisedTrolley extends Trolley{
                 break;  // product added, stop looping
             }
         }
+    }
+
+    @Override
+    public void clear(){
+
     }
 }
